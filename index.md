@@ -8,4 +8,4 @@ Here is some usefull articles below :
 - [ISO IPXE compatible UEFI](info/ipxe-uefi/)
 
 Other information here:
-- [Your Public IP](http://ip.virer.net/){:target="_blank"}
+- [Your Public IP](http://ip.virer.net/)
