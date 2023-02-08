@@ -1,4 +1,4 @@
-# ViReR.NeT Keepalived: A very simple IP failover setup
+# Keepalived: A very simple IP failover setup
 
 Here is a very quick documentation to configure a simple IP failover between two hosts.<br>
 
