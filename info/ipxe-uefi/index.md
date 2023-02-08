@@ -1,4 +1,4 @@
-# ViReR.NeT : iPXE and UEFI ISO
+# iPXE and UEFI ISO
 
 <br>
 
