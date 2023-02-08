@@ -2,15 +2,12 @@
 
 #### (a work in progress since Feb2023)
 
-```markdown
-Quelques articles utile ci-dessous:
+Here is some usefull articles below :
+- [Floating IP with Keepalived](info/keepalived/)
 
+Acticles in french below :
 - [Apache Guacamole avec podman](info/guacamole/)
-- [IP volante avec Keepalived](info/keepalived/)
-```
-
-```markdown
-D'autres articles ici :
-
 - [ISO IPXE compatible UEFI](info/ipxe-uefi/)
+
+Other information here:
 - [Your Public IP](http://ip.virer.net/){:target="_blank"}
