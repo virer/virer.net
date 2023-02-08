@@ -32,4 +32,4 @@ You may use it with that kind of script:
 ### Other
 
 Other information here:
-- [Your Public IP](http://ip.virer.net/){:target="_blank"}
+- [Check your public IP address here](http://ip.virer.net/){:target="_blank"}
