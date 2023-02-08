@@ -5,11 +5,11 @@
 ```Articles
 Quelques articles utile ci-dessous:
 
-- [Apache Guacamole avec podman](info/guacamole/README.md)
-- [IP volante avec Keepalived](info/keepalived/README.md)
+- [Apache Guacamole avec podman](info/guacamole/)
+- [IP volante avec Keepalived](info/keepalived/)
 
 ```Autres
 D'autres articles ici :
 
-- [ISO IPXE compatible UEFI](info/ipxe-uefi/README.md)
+- [ISO IPXE compatible UEFI](info/ipxe-uefi/)
 - [Your IP](http://ip.virer.net/)
