@@ -1,1 +1,7 @@
 theme: jekyll-theme-cayman
+header_pages:
+  - index.md
+  - about.md
+
+minima:
+  date_format: "%d%M%Y"
