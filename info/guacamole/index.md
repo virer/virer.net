@@ -5,44 +5,45 @@ For this setup :<br>
 - I used CentOS 7<br>
 - I used podman as docker replacement.<br>
 - I removed podman internal (default) network to avoid IP/Subnet overlap.<br>
-<br>
-<br>
 
-<br>
-<br>
+
 First step install podman
 ```console
 yum install -y podman
 ```
-<br>
-<br>
+ 
 Remove podman default network (to avoid IP/Subnet overlap):<br>
-```console
+
+```bash
 podman network rm podman
 ```
 <br>
 
 Pull Apache Guacamole  dockerhub images:<br>
-```console
+```
 podman pull guacamole/guacamole:1.4.0
 podman pull guacamole/guacd:1.4.0
 podman pull mysql/mysql-server
 ```
+
 <br>
-<br>
-<br>
+
 Start first container:
 ```console
 podman run --rm --network=host --name guac-guacd  -d guacamole/guacd:1.4.0
 ```
+
 <br>
-<br>
+
 Extract the inital MySQL configuration.
+
 ```console
 podman run --rm --network=host guacamole/guacamole:1.4.0 /opt/guacamole/bin/initdb.sh --mysql > /opt/initdb.sql
 ```
+
 <br>
-<br>
+
+
 Then, start the MySQL server and check the logs for the first time generated password
 ```console
 podman run --run --network=host --name guac-mysql --mount type=bind,src=/var/lib/mysql,dst=/var/lib/mysql -e MYSQL_RANDOM_ROOT_PASSWORD=yes -e MYSQL_ONETIME_PASSWORD=yes -d mysql/mysql-server:8.0.29
@@ -56,7 +57,7 @@ podman logs guac-mysql
 <br>
 <br>
 Configure MySQL for guacamole db &amp; user (with the previously recovered password in the logs) and restart it
-```console
+```bash
 podman exec -it guac-mysql bash
 
 $ mysql -u root -p
@@ -81,7 +82,10 @@ Then, generate self-signed SSL certificate in "/opt" and configure nginx that wi
 So here I create local files, then I map the directory to the "/etc/nginx..." inside the containers<br>
 
 ### Note: 
-  certificates should not be in that directory , this is maybe a security issue, here it is just for quick demo purpose<br>
+  certificates should not be in that directory , this is maybe a security issue, here it is just for a very quick demo purpose only.
+  
+<br>  
+  
 ```console
 mkdir -p /opt/etc/nginx/conf.d
 openssl req -x509 -sha256 -nodes -days 365 -subj '/C=BE/CN=guacamole.local' -newkey rsa:4096 -keyout cert.key -out cert.crt
@@ -109,10 +113,11 @@ EOF
 
 podman run --rm --network=host --name guac-nginx -v /opt/etc/nginx/conf.d/:/etc/nginx/conf.d/ -d -p 443:443 nginx:1.21.6
 ```
+
 <br>
-<br>
-<br>
-Now, you can finaly run the guacamole frontend part:<br>
+
+Now, you can finaly run the guacamole frontend part:
+
 ```console
 podman run --rm --network=host --name guac-guacamole -e GUACD_HOSTNAME=127.0.0.1 -e GUACD_PORT=4822 -e MYSQL_HOSTNAME=127.0.0.1 -e MYSQL_DATABASE=guacamole_db -e MYSQL_USER=guacamole_user -e MYSQL_PASSWORD="HeyThisISaGuacamoleDemoPassword" -d guacamole/guacamole:1.4.0
 ```
