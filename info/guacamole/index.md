@@ -1,4 +1,5 @@
-# Apache Guacamole with podman setup
+# ViReR.NeT: Apache Guacamole with podman
+
 Here is a very quick documentation to configure a simple Guacamole setup.<br>
 
 For this setup :<br>
