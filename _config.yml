@@ -5,3 +5,6 @@ header_pages:
 
 minima:
   date_format: "%d%M%Y"
+
+title: [ViReR.NeT: an random ./linux/sysadmin website]
+description: ./linux/sysadm | yaml
