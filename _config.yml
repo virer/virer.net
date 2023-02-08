@@ -1,10 +1,6 @@
 theme: jekyll-theme-cayman
-header_pages:
-  - index.md
-  - about.md
 
 minima:
   date_format: "%d%M%Y"
 
 title: [ViReR.NeT: an random ./linux/sysadmin website]
-description: ./linux/sysadm | yaml
