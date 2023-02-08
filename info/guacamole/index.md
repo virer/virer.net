@@ -8,19 +8,19 @@ For this setup :<br>
 
 
 First step install podman
-```console
+```bash
 yum install -y podman
 ```
  
 Remove podman default network (to avoid IP/Subnet overlap):<br>
 
-```console
+```
 podman network rm podman
 ```
 <br>
 
 Pull Apache Guacamole  dockerhub images:<br>
-```console
+```bash
 podman pull guacamole/guacamole:1.4.0
 podman pull guacamole/guacd:1.4.0
 podman pull mysql/mysql-server
@@ -29,7 +29,7 @@ podman pull mysql/mysql-server
 <br>
 
 Start first container:
-```console
+```bash
 podman run --rm --network=host --name guac-guacd  -d guacamole/guacd:1.4.0
 ```
 
@@ -37,7 +37,7 @@ podman run --rm --network=host --name guac-guacd  -d guacamole/guacd:1.4.0
 
 Extract the inital MySQL configuration.
 
-```console
+```bash
 podman run --rm --network=host guacamole/guacamole:1.4.0 /opt/guacamole/bin/initdb.sh --mysql > /opt/initdb.sql
 ```
 
@@ -46,7 +46,7 @@ podman run --rm --network=host guacamole/guacamole:1.4.0 /opt/guacamole/bin/init
 
 Then, start the MySQL server and check the logs for the first time generated password
 
-```console
+```bash
 podman run --run --network=host --name guac-mysql --mount type=bind,src=/var/lib/mysql,dst=/var/lib/mysql -e MYSQL_RANDOM_ROOT_PASSWORD=yes -e MYSQL_ONETIME_PASSWORD=yes -d mysql/mysql-server:8.0.29
 
 podman logs guac-mysql
@@ -56,18 +56,18 @@ podman logs guac-mysql
 
 Configure MySQL for guacamole db &amp; user (with the previously recovered password in the logs) and restart it
 
-```console
+```bash
 podman exec -it guac-mysql bash
 
 $ mysql -u root -p
 Enter password: &lt;Enter the Generated Root Password In MySQL container logs&gt;
 
-&gt;&gt; ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyNewPassword';
-&gt;&gt; CREATE DATABASE guacamole_db;
-&gt;&gt; CREATE USER 'guacamole_user'@'%' IDENTIFIED BY 'HeyThisISaGuacamoleDemoPassword';
-&gt;&gt; GRANT SELECT,INSERT,UPDATE,DELETE ON guacamole_db.* TO 'guacamole_user'@'%';
-&gt;&gt; FLUSH PRIVILEGES;
-&gt;&gt; quit
+>> ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyNewPassword';
+>> CREATE DATABASE guacamole_db;
+>> CREATE USER 'guacamole_user'@'%' IDENTIFIED BY 'HeyThisISaGuacamoleDemoPassword';
+>> GRANT SELECT,INSERT,UPDATE,DELETE ON guacamole_db.* TO 'guacamole_user'@'%';
+>> FLUSH PRIVILEGES;
+>> quit
 
 $ ^D
 
@@ -86,7 +86,7 @@ So here I create local files, then I map the directory to the "/etc/nginx..." in
   
 <br>  
   
-```console
+```bash
 mkdir -p /opt/etc/nginx/conf.d
 openssl req -x509 -sha256 -nodes -days 365 -subj '/C=BE/CN=guacamole.local' -newkey rsa:4096 -keyout cert.key -out cert.crt
 cat &lt;&lt;EOF&gt; /opt/etc/nginx/conf.d/default.conf
@@ -111,7 +111,7 @@ server {
 }
 EOF
 
-podman run --rm --network=host --name guac-nginx -v /opt/etc/nginx/conf.d/:/etc/nginx/conf.d/ -d -p 443:443 nginx:1.21.6
+podman run --rm --network=host --name guac-nginx -v /opt/etc/nginx/conf.d/:/etc/nginx/conf.d/ -d -p 443:443 nginx:1.22
 
 ```
 
@@ -119,7 +119,7 @@ podman run --rm --network=host --name guac-nginx -v /opt/etc/nginx/conf.d/:/etc/
 
 Now, you can finaly run the guacamole frontend part:
 
-```console
+```bash
 podman run --rm --network=host --name guac-guacamole -e GUACD_HOSTNAME=127.0.0.1 -e GUACD_PORT=4822 -e MYSQL_HOSTNAME=127.0.0.1 -e MYSQL_DATABASE=guacamole_db -e MYSQL_USER=guacamole_user -e MYSQL_PASSWORD="HeyThisISaGuacamoleDemoPassword" -d guacamole/guacamole:1.4.0
 
 ```
@@ -127,15 +127,19 @@ podman run --rm --network=host --name guac-guacamole -e GUACD_HOSTNAME=127.0.0.1
 
 if you need Header Authentication add the following podman arguments:
 
-```console
+```bash
 -e HEADER_ENABLED=true -e HTTP_AUTH_HEADER=X-Remote-User
 ```
 
 <br>
 
 <br>
+
 Now just use your browser on https://your-machine-ip/guacamole/<br>
 and enjoy :)
+
 <br>
 
-Tips: Never, ever use "latest" tags in your deployments to avoid using wrong/not tested version, it will avoid some waste of time :)
+
+### Tips: 
+Never, ever use "latest" tags in your deployments to avoid using wrong/not tested version, it will avoid some waste of time :)
