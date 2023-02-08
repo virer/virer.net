@@ -3,4 +3,5 @@ theme: jekyll-theme-cayman
 minima:
   date_format: "%d%M%Y"
 
-title: [ViReR.NeT: an random ./linux/sysadmin website]
+title: [ViReR.NeT]
+description: [a random ./linux/sysadmin website]
