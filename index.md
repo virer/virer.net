@@ -15,7 +15,7 @@ You may use it with that kind of script:
     #!/bin/bash
     export PATH=$PATH:/usr/local/bin 
     
-    # Here you extract the token exposed by you serviceAccount
+    # Here you extract the token exposed by your serviceAccount
     TOKEN=$( cat /run/secrets/kubernetes.io/serviceaccount/token ) 
     
     # Then you login on the OpenShift cluster
