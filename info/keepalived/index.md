@@ -25,7 +25,9 @@ Here is the required packages for both node (as always the package name may chan
 ```bash
 # dnf install keepalived
 ```
+
 And for debian like:
+```bash
 # apt-get install keepalived
 ```
 
