@@ -14,13 +14,13 @@ yum install -y podman
  
 Remove podman default network (to avoid IP/Subnet overlap):<br>
 
-```bash
+```console
 podman network rm podman
 ```
 <br>
 
 Pull Apache Guacamole  dockerhub images:<br>
-```
+```console
 podman pull guacamole/guacamole:1.4.0
 podman pull guacamole/guacd:1.4.0
 podman pull mysql/mysql-server
@@ -45,19 +45,18 @@ podman run --rm --network=host guacamole/guacamole:1.4.0 /opt/guacamole/bin/init
 
 
 Then, start the MySQL server and check the logs for the first time generated password
+
 ```console
 podman run --run --network=host --name guac-mysql --mount type=bind,src=/var/lib/mysql,dst=/var/lib/mysql -e MYSQL_RANDOM_ROOT_PASSWORD=yes -e MYSQL_ONETIME_PASSWORD=yes -d mysql/mysql-server:8.0.29
 
 podman logs guac-mysql
 ```
-<br>
-<br>
 
 <br>
-<br>
-<br>
+
 Configure MySQL for guacamole db &amp; user (with the previously recovered password in the logs) and restart it
-```bash
+
+```console
 podman exec -it guac-mysql bash
 
 $ mysql -u root -p
@@ -74,10 +73,11 @@ $ ^D
 
 podman stop guac-mysql
 podman run --name guac-mysql --network=host --hostname guac-mysql --mount type=bind,src=/var/lib/mysql,dst=/var/lib/mysql -e MYSQL_ONETIME_PASSWORD=no -d mysql/mysql-server:8.0.29
+
 ```
 
 <br>
-<br>
+
 Then, generate self-signed SSL certificate in "/opt" and configure nginx that will serve as reverse proxy:<br>
 So here I create local files, then I map the directory to the "/etc/nginx..." inside the containers<br>
 
@@ -112,6 +112,7 @@ server {
 EOF
 
 podman run --rm --network=host --name guac-nginx -v /opt/etc/nginx/conf.d/:/etc/nginx/conf.d/ -d -p 443:443 nginx:1.21.6
+
 ```
 
 <br>
@@ -120,20 +121,21 @@ Now, you can finaly run the guacamole frontend part:
 
 ```console
 podman run --rm --network=host --name guac-guacamole -e GUACD_HOSTNAME=127.0.0.1 -e GUACD_PORT=4822 -e MYSQL_HOSTNAME=127.0.0.1 -e MYSQL_DATABASE=guacamole_db -e MYSQL_USER=guacamole_user -e MYSQL_PASSWORD="HeyThisISaGuacamoleDemoPassword" -d guacamole/guacamole:1.4.0
+
 ```
 
 
-if you need Header Authentication add the following podman arguments:<br>
+if you need Header Authentication add the following podman arguments:
+
 ```console
 -e HEADER_ENABLED=true -e HTTP_AUTH_HEADER=X-Remote-User
 ```
-<br>
+
 <br>
 
 <br>
-<br>
 Now just use your browser on https://your-machine-ip/guacamole/<br>
-and enjoy :)<br>
+and enjoy :)
 <br>
-<br>
+
 Tips: Never, ever use "latest" tags in your deployments to avoid using wrong/not tested version, it will avoid some waste of time :)
