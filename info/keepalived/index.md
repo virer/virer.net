@@ -34,6 +34,7 @@ And for debian like:
 ### Primary node configuration:
 
 edit the file located here **/etc/keepalived/keepalived.conf** and remove all the default content(important) and put the following content inside:
+
 ```bash
 ! Configuration File for keepalived
 
@@ -77,7 +78,7 @@ vrrp_instance VI_1 {
               192.168.0.1/24
         }
 }
-```bash
+```
 
 <br>
 
@@ -88,7 +89,7 @@ A good way to test, is to start the secondary/backup node before the primary as 
 
 ```bash
 # systemctl start keepalived
-```bash
+```
 
 <br>
 
@@ -106,7 +107,7 @@ Verify the network configuration on the secondary node:
        valid_lft forever preferred_lft forever
     inet 192.168.0.1/24 scope global eth0
        valid_lft forever preferred_lft forever
-```bash
+```
 
 <br>
 
