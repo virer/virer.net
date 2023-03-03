@@ -3,9 +3,9 @@
 ### Articles
 
 Here is some usefull articles below :
-- [Apache Guacamole avec podman](info/guacamole/)
+- [Apache Guacamole with podman](info/guacamole/)
 - [Floating IP with Keepalived](info/keepalived/)
-- [ISO IPXE compatible UEFI](info/ipxe-uefi/)
+- [UEFI compatible iPXE ISO](info/ipxe-uefi/)
 
 ### Kubernetes / OpenShift ressources:
 
