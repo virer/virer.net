@@ -33,3 +33,6 @@ You may use it with that kind of script:
 
 Other information here:
 - [Check your public IP address here](http://ip.virer.net/){:target="_blank"}
+
+### Social
+- [Mastodon](https://fosstodon.org/@virer_dot_net){rel="me"}
