@@ -5,3 +5,12 @@ minima:
 
 title: [ViReR.NeT]
 description: [..::ViReR.NeT::.. a random ./linux/sysadmin website]
+
+navbar:
+    right:
+      - icon: github
+        href: https://github.com/virer
+        rel: me
+      - icon: mastodon
+        href: https://fosstodon.org/@virer_dot_net
+        rel: me
