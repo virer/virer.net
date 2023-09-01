@@ -1,5 +1,11 @@
 ## ViReR.NeT 
 
+### Project
+
+Current project :
+- [Konsumo](https://konusmo.virer.net/) A home energy consumption reporting charts
+- [DSX-Networks](https://dsx-networks.com/) A web hosting company
+
 ### Articles
 
 Here is some usefull articles below :
