@@ -3,8 +3,8 @@
 ### Project
 
 Current project :
-- [Konsumo](https://konusmo.virer.net/) A home energy consumption reporting charts
-- [DSX-Networks](https://dsx-networks.com/) A web hosting company
+- [Konsumo](https://konsumo.virer.net/){:target="_blank"} A home energy consumption reporting charts
+- [DSX-Networks](https://dsx-networks.com/){:target="_blank"} A web hosting company
 
 ### Articles
 
