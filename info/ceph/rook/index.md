@@ -1,7 +1,7 @@
 # Ceph
 Ceph is an open-source, distributed storage system that can be deployed on many platforms.
 
-Ceph can even deployed on Raspberry-pi clusters :)
+Ceph can even be deployed on a clusters of Raspberry-pi :)
 
 Vendors :
 - Red Hat provides Ceph via OpenShift Data Foundation.
