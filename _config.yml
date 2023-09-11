@@ -3,8 +3,8 @@ theme: jekyll-theme-cayman
 minima:
   date_format: "%d%M%Y"
 
-title: [ViReR.NeT]
-description: [..::ViReR.NeT::.. a random ./linux/sysadmin website]
+name: ""
+title: null
 
 navbar:
     right:
