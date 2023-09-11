@@ -1,5 +1,6 @@
 # Ceph
 Ceph is an open-source, distributed storage system that can be deployed on many platforms.
+
 Ceph can even deployed on Raspberry-pi clusters :)
 
 Vendors :
@@ -10,12 +11,16 @@ Vendors :
 
 ## Rook
 
-Pre-req
+Pre-req:
 Local storage will be need for 2 elements of the ceph clusters, "mon" and "osd".
+
 Each of those will run on 3 nodes.
+
 For this example I use infra0,1 and worker0 for the storage part.
+
 I've create pvc as it is easier to me to identify where is the location of the storage.
 
+### Rook Install
 Installation of the Rook operator on OpenShift
 
 ```console
