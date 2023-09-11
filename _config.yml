@@ -3,14 +3,5 @@ theme: jekyll-theme-cayman
 minima:
   date_format: "%d%M%Y"
 
-name: ""
-title: null
-
-navbar:
-    right:
-      - icon: github
-        href: https://github.com/virer
-        rel: me
-      - icon: mastodon
-        href: https://fosstodon.org/@virer_dot_net
-        rel: me
+title: [ViReR.NeT]
+description: [..::ViReR.NeT::.. a random ./linux/sysadmin website]
