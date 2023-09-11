@@ -9,6 +9,7 @@ Current project :
 ### Articles
 
 Here is some usefull articles below :
+- [Providing Ceph storage using Rook on OpenShift](info/ceph/rook/)
 - [Apache Guacamole with podman](info/guacamole/)
 - [Floating IP with Keepalived](info/keepalived/)
 - [UEFI compatible iPXE ISO](info/ipxe-uefi/)
