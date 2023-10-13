@@ -6,7 +6,14 @@ OpenEBS helps Developers and Platform SREs easily deploy Kubernetes Stateful Wor
 OpenEBS turns any storage available on the Kubernetes worker nodes into local or distributed Kubernetes Persistent Volumes.
 
 ## Installation
-I've try to use the Operator(3.0.0) provided in the Marketplace but is seems to be broken, so I choose to use the Helm method
+Before installing, please add the needed local disk on your infra and/or worker node.
+
+So for example the OpenShift OS will stay on sda and we will have a fresh new sdb without any LVM(PV,VG) nor any partition.
+
+
+Important Note:
+
+I've try to use the Operator(3.0.0) provided in the Marketplace but is seems to be broken, so I choose to use the Helm method.
 
 ### Help setup
 
