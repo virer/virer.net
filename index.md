@@ -1,15 +1,9 @@
 ## ViReR.NeT 
 
-### Project
-
-Current project :
-- [Konsumo](https://konsumo.virer.net/){:target="_blank"} A home energy consumption reporting charts
-- [DSX-Networks](https://dsx-networks.com/){:target="_blank"} A web hosting company
-- [My GitHub](https://github.com/virer/){:target="_blank"} repositories
-
 ### Articles
 
 Here is some usefull articles below :
+- [OpenEBS storage installation on OpenShift](info/openebs/)
 - [Providing Ceph storage using Rook on OpenShift](info/ceph/rook/)
 - [Apache Guacamole with podman](info/guacamole/)
 - [Floating IP with Keepalived](info/keepalived/)
@@ -35,7 +29,12 @@ You may use it with that kind of script:
       tkn pipelinerun delete ${pod} --force
     done
 ```
+### Project
 
+Current project :
+- [Konsumo](https://konsumo.virer.net/){:target="_blank"} A home energy consumption reporting charts
+- [DSX-Networks](https://dsx-networks.com/){:target="_blank"} A web hosting company
+- [My GitHub](https://github.com/virer/){:target="_blank"} repositories
 
 ### Other
 
