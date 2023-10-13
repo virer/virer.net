@@ -54,13 +54,28 @@ Optional: add a new label to trigger rescheduling
 Start iscsi daemon on Infra nodes and workers:
 ```console
 # cat <<EOF> 99-infra-worker-custom-enable-iscsid.yaml
+---
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfig
+metadata:
+  labels:
+    machineconfiguration.openshift.io/role: infra
+  name: 99-infra-custom-enable-iscsid
+spec:
+  config:
+    ignition:
+      version: 3.2.0
+    systemd:
+      units:
+      - enabled: true
+        name: iscsid.service
+---
 apiVersion: machineconfiguration.openshift.io/v1
 kind: MachineConfig
 metadata:
   labels:
     machineconfiguration.openshift.io/role: worker
-    machineconfiguration.openshift.io/role: infra
-  name: 99-infra-worker-custom-enable-iscsid
+  name: 99-worker-custom-enable-iscsid
 spec:
   config:
     ignition:
