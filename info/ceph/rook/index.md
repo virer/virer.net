@@ -4,10 +4,8 @@ Ceph is an open-source, distributed storage system that can be deployed on many 
 Ceph can even be deployed on a clusters of Raspberry-pi :)
 
 Vendors :
-- Red Hat provides Ceph via OpenShift Data Foundation.
+- Red Hat provides Ceph via OpenShift Data Foundation, the upstream project name is Rook
 - SuSE provides Ceph via Longhorn (Mostly on Rancher).
-- Rook is an alternive one.
-
 
 ## Rook
 
