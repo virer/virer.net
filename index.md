@@ -34,10 +34,5 @@ You may use it with that kind of script:
 Current project :
 - [Virium](https://github.com/virer/viriumd){:target="_blank"} A storage solution for Kubernetes based on iSCSI and LVM(Logical Volume Manager).
 - [Konsumo](https://konsumo.virer.net/){:target="_blank"} A home energy consumption reporting charts
-- [DSX-Networks](https://dsx-networks.com/){:target="_blank"} A web hosting company
 - [My GitHub](https://github.com/virer/){:target="_blank"} repositories
 
-### Other
-
-Other information here:
-- [Check your public IP address here](http://ip.virer.net/){:target="_blank"}
