@@ -36,3 +36,11 @@ Current project :
 - [Konsumo](https://konsumo.virer.net/){:target="_blank"} A home energy consumption reporting charts
 - [My GitHub](https://github.com/virer/){:target="_blank"} repositories
 
+### Homelab notes
+
+Some usefull notes, scripts, tips and tricks used in my homelabs or in real-life:
+- [Homelab-public](https://github.com/virer/homelab-public){:target="_blank"} homelab-public repository
+
+
+
+
