@@ -35,6 +35,7 @@ Current project :
 - [Virium](https://github.com/virer/viriumd){:target="_blank"} A storage solution for Kubernetes based on iSCSI and LVM(Logical Volume Manager).
 - [Konsumo](https://konsumo.virer.net/){:target="_blank"} A home energy consumption reporting charts
 - [BBQ Timer](https://virer.github.io/bbq-timer/){:target="_blank"} A barbecue time manager to never eat burned food again!
+- [IPv6 Watcher](https://github.com/virer/ipv6-watcher){:target="_blank"} Goal is to relay and proxify IPv6 addresses from one interface to another. It does NDP and auto LAN ip assignment based on WAN NIC IPv6 IP (basically to avoid NAT66 usage).
 - [My GitHub](https://github.com/virer/){:target="_blank"} repositories
 
 ### Homelab notes
