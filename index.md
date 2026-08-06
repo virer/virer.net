@@ -34,6 +34,7 @@ You may use it with that kind of script:
 Current project :
 - [Virium](https://github.com/virer/viriumd){:target="_blank"} A storage solution for Kubernetes based on iSCSI and LVM(Logical Volume Manager).
 - [Konsumo](https://konsumo.virer.net/){:target="_blank"} A home energy consumption reporting charts
+- [BBQ Timer](https://virer.github.io/bbq-timer/){:target="_blank"} A barbecue time manager to never eat burned food again!
 - [My GitHub](https://github.com/virer/){:target="_blank"} repositories
 
 ### Homelab notes
